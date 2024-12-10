@@ -12,6 +12,8 @@ This project implements a Software-Defined Networking (SDN) based DDoS attack de
 
 - Python 3.7 or higher
 
+- Ubuntu
+
 ## Installation
 
 1. Clone the Contiki-NG repository:
