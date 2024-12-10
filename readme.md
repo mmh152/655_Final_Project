@@ -12,8 +12,6 @@ This project implements a Software-Defined Networking (SDN) based DDoS attack de
 
 - Python 3.7 or higher
 
-- Git
-
 ## Installation
 
 1. Clone the Contiki-NG repository:
@@ -92,25 +90,13 @@ cd contiki-ng
 
    - Place Attacker Node within range but at a different position
 
-5. Configure nodes:
-
-   - SDN Controller: Mote Type → Create new mote type → Browse → select sdn-controller.firmware
-
-   - Normal Nodes: Select normal-node.firmware
-
-   - Attacker Node: Select attacker-node.firmware
-
 ## Collecting and Analyzing Results
 
 1. Start the simulation and collect logs:
 
-   - Tools → Collect View
-
-   - Select "Show all nodes"
-
    - Start simulation
 
-   - Let it run for at least 2-3 minutes
+   - Let it run for at least 30 seconds.
 
 2. Save the logs:
 
@@ -130,11 +116,7 @@ The script will output:
 
 - Accuracy percentage
 
-- False Positive Rate
-
 - F1-Score
-
-- Detailed detection statistics
 
 ## Detection Methods
 
@@ -171,37 +153,3 @@ Key parameters in project-conf.h:
 #define BLACKLIST_TIMEOUT 60      // Blacklist duration (seconds)
 
 ```
-
-## Troubleshooting
-
-1. Compilation errors:
-
-   - Ensure correct Contiki-NG path in Makefile
-
-   - Check msp430 compiler installation
-
-   - Verify project-conf.h is in the correct location
-
-2. Cooja simulation issues:
-
-   - Clear build files: make TARGET=cooja clean
-
-   - Rebuild all nodes
-
-   - Check node positioning in network
-
-3. Analysis script errors:
-
-   - Verify log file format
-
-   - Check Python version (3.7+ required)
-
-   - Ensure log file is in the correct location
-
-## License
-
-[Your License Here]
-
-## Contributing
-
-[Your Contributing Guidelines]
