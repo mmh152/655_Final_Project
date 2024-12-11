@@ -1,4 +1,4 @@
-- Without any codes, tell me the best way to combine the 2 implementations into 1 implementation that contains both. So, do you think we should 
+- Without any codes, tell me the best way to combine the 2 implementations into 1 implementation that contains both counter-based threshold and cosine similarity. So, do you think we should 
 do them as and, or or, or what? (Such as if the attack was detected by the first and second implementation) or do you recommend something else?
 
 
@@ -44,12 +44,7 @@ Answer:
 
 For the SDN controller implementation combining both methods, here are the key components needed:
 
-First, define your detection thresholds and weights:
-```c
-#define PATTERN_WEIGHT 0.6
-#define RATE_WEIGHT 0.4
-#define ATTACK_THRESHOLD 1.0
-```
+First, define your detection thresholds and weights: pattern weight, rate weight and attack threshold
 
 You'll need a structure to track per-node statistics:
 ```c
@@ -65,38 +60,8 @@ typedef struct {
 ```
 
 For pattern analysis, implement cosine similarity:
-```c
-float compute_similarity(const uint32_t *v1, const uint32_t *v2) {
-    float dot_product = 0, norm1 = 0, norm2 = 0;
-    for(int i = 0; i < 10; i++) {
-        dot_product += v1[i] * v2[i];
-        norm1 += v1[i] * v1[i];
-        norm2 += v2[i] * v2[i];
-    }
-    return calculate_final_similarity(dot_product, norm1, norm2);
-}
-```
 
-The main detection function:
-```c
-bool detect_attack(node_stat_t *node) {
-    float risk_score = 0;
-    
-    // Pattern Analysis (0.6 weight)
-    float similarity = compute_similarity(node->traffic_vector, baseline_vector);
-    if(similarity < DETECTION_THRESHOLD) {
-        risk_score += PATTERN_WEIGHT;
-    }
-    
-    // Rate Detection (0.4 weight)
-    if(check_rate_threshold(node)) {
-        risk_score += RATE_WEIGHT;
-    }
-    
-    node->risk_score = risk_score;
-    return (risk_score >= ATTACK_THRESHOLD);
-}
-```
+The main detection function will contain pattern analysis and rate detection with final comparison with attack threshold
 
 The rate checking function:
 ```c
