@@ -1,4 +1,4 @@
-# SDN-Based DDoS Detection in IoT Networks
+# SDN-Based DDoS Detection and Mitigation in IoT Networks
 
 This project implements a Software-Defined Networking (SDN) based DDoS attack detection and mitigation system for IoT networks using Cooja Contiki-NG. The system uses a combination of rate limiting and traffic pattern analysis to detect and mitigates DDoS attacks while maintaining service for legitimate nodes.
 
