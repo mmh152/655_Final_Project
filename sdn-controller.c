@@ -42,7 +42,7 @@ LIST(node_stats_list);
 LIST(blacklist_list);
 
 static struct simple_udp_connection udp_conn;
-static process_event_t cleanup_event;
+
 
 /* Baseline vector for normal behavior */
 static const uint32_t baseline_vector[TRAFFIC_VECTOR_SIZE] = {64, 64, 64, 64, 64, 64, 64, 64, 64, 64};
